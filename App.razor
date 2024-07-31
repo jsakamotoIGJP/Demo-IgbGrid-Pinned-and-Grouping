@@ -1,0 +1,35 @@
+﻿<div style="max-width: 900px; margin: auto; padding: 24px; display: flex; flex-direction: column; gap: 24px;">
+    <IgbGrid Data="_people"
+             PrimaryKey="@nameof(Person.Id)"
+             AutoGenerate="false"
+             AllowFiltering
+             FilterMode="FilterMode.ExcelStyleFilter">
+        <IgbColumn Field="@nameof(Person.Name)" Header="Name" Pinned></IgbColumn>
+        <IgbColumn Field="@nameof(Person.Age)" Header="Age" DataType="GridColumnDataType.Number" Groupable></IgbColumn>
+        <IgbColumn Field="@nameof(Person.JobTitle)" Header="Job Title" Groupable></IgbColumn>
+    </IgbGrid>
+</div>
+
+@code {
+    public class Person
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public int Age { get; set; }
+        public string? JobTitle { get; set; }
+    }
+
+    private List<Person> _people = new()
+    {
+        new() { Id = 1, Name = "Bob", Age = 30, JobTitle = "Developer" },
+        new() { Id = 2, Name = "Alice", Age = 20, JobTitle = "Support" },
+        new() { Id = 3, Name = "John", Age = 40, JobTitle = "Manager" },
+        new() { Id = 4, Name = "Emily", Age = 30, JobTitle = "Marketing" },
+        new() { Id = 5, Name = "David", Age = 20, JobTitle = "Sales" },
+        new() { Id = 6, Name = "Sarah", Age = 20, JobTitle = "Developer" },
+        new() { Id = 7, Name = "Michael", Age = 30, JobTitle = "Marketing" },
+        new() { Id = 8, Name = "Emma", Age = 20, JobTitle = "Sales" },
+        new() { Id = 9, Name = "James", Age = 30, JobTitle = "Developer" },
+        new() { Id = 10, Name = "Olivia", Age = 40, JobTitle = "Support" }
+    };
+}
